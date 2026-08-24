@@ -17,7 +17,7 @@ const puppeteer = require('puppeteer-core');
         path: 'ZeelKundariya_Resume.pdf', 
         format: 'A4', 
         printBackground: true,
-        margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' }
+        margin: { top: '5mm', right: '5mm', bottom: '5mm', left: '5mm' }
     });
     
     await browser.close();
