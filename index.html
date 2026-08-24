@@ -1,167 +1,410 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeel Kundariya - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; }
-        body { font-family: 'Inter', sans-serif; background: #f4f4f4; color: #111; display: flex; justify-content: center; padding: 20px; }
-        .resume { width: 210mm; height: 297mm; background: #fff; padding: 15mm 18mm; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        header { text-align: center; margin-bottom: 5mm; }
-        h1 { font-size: 24pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2mm; color: #000; }
-        .contact-info { font-size: 9.5pt; color: #222; margin-bottom: 1.5mm; }
-        .contact-info a { color: #222; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.2s; }
-        .contact-info a:hover { border-bottom: 1px solid #222; }
-        .separator { margin: 0 2mm; color: #999; }
-        h2 { font-size: 11pt; font-weight: 700; text-transform: uppercase; color: #000; border-bottom: 1.5px solid #000; padding-bottom: 1mm; margin-top: 4.5mm; margin-bottom: 3mm; letter-spacing: 0.5px; }
-        .item { margin-bottom: 3.5mm; }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1mm; }
-        .item-title { font-size: 10.5pt; font-weight: 700; color: #000; }
-        .item-subtitle { font-size: 9.5pt; font-style: italic; color: #444; }
-        .item-date { font-size: 9.5pt; font-weight: 500; color: #444; }
-        ul { padding-left: 4.5mm; margin-top: 1mm; }
-        li { font-size: 9.5pt; line-height: 1.45; margin-bottom: 1.2mm; color: #222; }
-        .skills-grid { display: grid; grid-template-columns: 140px 1fr; gap: 2mm; font-size: 9.5pt; line-height: 1.4; }
-        .skill-label { font-weight: 600; color: #000; }
-        @media print { body { padding: 0; background: #fff; } .resume { box-shadow: none; margin: 0; width: 100%; height: 100%; padding: 12mm 15mm; } }
+        :root {
+            --text-dark: #000000;
+            --text-light: #444444;
+            --divider: #999999;
+            --font-serif: 'PT Serif', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #f0f0f0;
+            color: var(--text-dark);
+            line-height: 1.25;
+            padding: 20px 0;
+        }
+
+        .resume-page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 8mm 10mm;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2mm;
+        }
+
+        .header-left h1 {
+            font-family: var(--font-serif);
+            font-size: 32pt;
+            font-weight: 700;
+            margin-bottom: 1mm;
+        }
+
+        .header-left .subtitle {
+            font-family: var(--font-serif);
+            font-size: 14pt;
+            color: var(--text-light);
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 9pt;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5mm;
+        }
+
+        .header-right .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 2mm;
+        }
+
+        .header-right i {
+            color: var(--text-light);
+            font-size: 10pt;
+        }
+
+        /* Nav Bar */
+        .nav-bar {
+            display: flex;
+            border: 1px solid #000;
+            margin: 2mm 0 4mm;
+            font-family: var(--font-serif);
+            font-size: 11pt;
+            font-weight: 400;
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            padding: 1mm 0;
+            text-decoration: none;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2mm;
+            border-right: 1px solid #000;
+        }
+
+        .nav-item:last-child {
+            border-right: none;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 43% 57%;
+            gap: 4mm;
+            flex: 1;
+        }
+
+        .left-col,
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2mm;
+        }
+
+        /* Section Styling */
+        section h2 {
+            font-family: var(--font-serif);
+            font-size: 14pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1pt;
+            border-bottom: 1px solid var(--divider);
+            margin-bottom: 1.5mm;
+            padding-bottom: 0.5mm;
+        }
+
+        h3 {
+            font-size: 10pt;
+            font-weight: 700;
+            margin-bottom: 0.5mm;
+        }
+
+        .item {
+            margin-bottom: 2mm;
+        }
+
+        p,
+        li {
+            font-size: 8pt;
+            color: var(--text-dark);
+            line-height: 1.35;
+        }
+
+        .tech-line {
+            font-weight: 700;
+            font-size: 8pt;
+            margin: 0.5mm 0;
+        }
+
+        .links-line {
+            font-size: 8pt;
+            margin-top: 0.5mm;
+        }
+
+        .links-line a {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1mm;
+        }
+
+        .skill-category {
+            font-size: 8pt;
+        }
+
+        .skill-category b {
+            font-weight: 700;
+        }
+
+        /* Grid for Certificates */
+        .listing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1mm 2mm;
+        }
+
+        .listing-item {
+            font-size: 7.5pt;
+            display: flex;
+            gap: 1.5mm;
+            line-height: 1.1;
+        }
+
+        .listing-num {
+            min-width: 3mm;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: #fff;
+            }
+
+            .resume-page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <div class="resume">
+
+    <div class="resume-page">
         <header>
-            <h1>Zeel Kundariya</h1>
-            <div class="contact-info">
-                Gandhinagar, India <span class="separator">|</span> 
-                +91 9714860362 <span class="separator">|</span> 
-                <a href="mailto:zeel.kundariya.m.cg@gmail.com">zeel.kundariya.m.cg@gmail.com</a>
+            <div class="header-left">
+                <h1>Zeel Kundariya</h1>
+                <div class="subtitle">Full-Stack Developer</div>
             </div>
-            <div class="contact-info">
-                <a href="https://www.linkedin.com/in/zeel-kundariya">LinkedIn</a> <span class="separator">|</span> 
-                <a href="https://github.com/Zeelkundariya">GitHub</a> <span class="separator">|</span> 
-                <a href="https://zeel-kundariya-portfolio.vercel.app/">Portfolio</a> <span class="separator">|</span> 
-                <a href="https://leetcode.com/u/Zeel1304/">LeetCode</a>
+            <div class="header-right">
+                <div class="contact-item">
+                    <span>9714860362</span>
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-item">
+                    <span>zeel.kundariya.m.cg@gmail.com</span>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-item">
+                    <span>Gandhinagar</span>
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
             </div>
         </header>
 
-        <section>
-            <h2>Education</h2>
-            <div class="item" style="margin-bottom: 0;">
-                <div class="item-header">
-                    <span class="item-title">Swaminarayan University, Kalol</span>
-                    <span class="item-date">2025 &ndash; 2029</span>
-                </div>
-                <div class="item-subtitle">Bachelor of Technology (B.Tech) in Computer Science</div>
-            </div>
-        </section>
+        <div class="nav-bar">
+            <a href="https://www.linkedin.com/in/zeel-kundariya" class="nav-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/Zeelkundariya" class="nav-item"><i class="fab fa-github"></i> Github</a>
+            <a href="https://www.YouTube.com/@ZeelKundariya" class="nav-item"><i class="fab fa-YouTube"></i> YouTube</a>
+            <a href="https://zeel-kundariya-portfolio.vercel.app/" class="nav-item"><i class="fas fa-briefcase"></i> Portfolio</a>
+            <a href="https://leetcode.com/u/Zeel1304/" class="nav-item"><i class="fas fa-code"></i> Leetcode</a>
+        </div>
 
-        <section>
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-label">Languages:</div>
-                <div>JavaScript (ES6+), C++, HTML5, CSS3</div>
-                <div class="skill-label">Frameworks:</div>
-                <div>React.js, Node.js, Express.js, Tailwind CSS</div>
-                <div class="skill-label">Tools & Databases:</div>
-                <div>MongoDB, SQLite, Git/GitHub, REST APIs, Vercel, Render</div>
-                <div class="skill-label">Design & UI:</div>
-                <div>Figma, Wireframing, Prototyping</div>
-            </div>
-        </section>
+        <div class="content-grid">
+            <div class="left-col">
+                <section>
+                    <h2>SKILLS</h2>
+                    <div class="skills-list">
+                        <div class="skill-category">
+                            <b>• Languages & Frameworks:</b> JavaScript (ES6+), C++, React.js, HTML, CSS, Tailwind
+                        </div>
+                        <div class="skill-category">
+                            <b>• Databases & Backend:</b> MongoDB, REST APIs, Cloudinary, Node.js, Express.js
+                        </div>
+                        <div class="skill-category">
+                            <b>• Tools & Platforms:</b> Git, GitHub, Postman, npm, Vercel, Netlify, Render, Figma, Hostinger
+                        </div>
+                        <div class="skill-category">
+                            <b>• UI/UX Design:</b> Figma, Wireframing, Prototyping
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>CERTIFICATES</h2>
+                    <div class="listing-grid">
+                        <div class="listing-item"><span class="listing-num">1.</span> <a href="../Portfolio/Zeel kundariya Runner-up Certificate.pdf" target="_blank" style="color: inherit; text-decoration: none;">Odoo x Adani Univ Hackathon '26</a></div>
+                        <div class="listing-item"><span class="listing-num">9.</span> <a href="../Portfolio/techexpo.png" target="_blank" style="color: inherit; text-decoration: none;">Tech Expo Hackathon</a></div>
+                        <div class="listing-item"><span class="listing-num">2.</span> <a href="../Portfolio/Zeel_Kundariya_Certificate.pdf" target="_blank" style="color: inherit; text-decoration: none;">InnovAItion - Shaping Innovators</a></div>
+                        <div class="listing-item"><span class="listing-num">10.</span> <a href="#" style="color: inherit; text-decoration: none;">FinAgent Hackathon</a></div>
+                        <div class="listing-item"><span class="listing-num">3.</span> <a href="../Portfolio/reporeboot.jpg" target="_blank" style="color: inherit; text-decoration: none;">Repo Reboot</a></div>
+                        <div class="listing-item"><span class="listing-num">11.</span> <a href="#" style="color: inherit; text-decoration: none;">Neural Nexus 2.0</a></div>
+                        <div class="listing-item"><span class="listing-num">4.</span> <a href="../Portfolio/Zeel kundariya Code Matrix.pdf" target="_blank" style="color: inherit; text-decoration: none;">CodeMatrix: Genesis Hackathon</a></div>
+                        <div class="listing-item"><span class="listing-num">12.</span> <a href="#" style="color: inherit; text-decoration: none;">Rethink</a></div>
+                        <div class="listing-item"><span class="listing-num">5.</span> <a href="#" style="color: inherit; text-decoration: none;">K Hacks 3.0</a></div>
+                        <div class="listing-item"><span class="listing-num">13.</span> <a href="#" style="color: inherit; text-decoration: none;">Code Clash</a></div>
+                        <div class="listing-item"><span class="listing-num">6.</span> <a href="../Portfolio/githubcopilot.png" target="_blank" style="color: inherit; text-decoration: none;">GitHub Copilot Fundamentals</a></div>
+                        <div class="listing-item"><span class="listing-num">14.</span> <a href="#" style="color: inherit; text-decoration: none;">Dev Heat Hackathon</a></div>
+                        <div class="listing-item"><span class="listing-num">7.</span> <a href="../Portfolio/Zeel kundariya GitHub_Portfolio_Analyzer.png" target="_blank" style="color: inherit; text-decoration: none;">Github Portfolio Analyzer</a></div>
+                        <div class="listing-item"><span class="listing-num">15.</span> <a href="../Portfolio/Zeel Kundariya Emotion-Aware_Encryption_Hackathon.png" target="_blank" style="color: inherit; text-decoration: none;">Emotion Aware Encryption</a></div>
+                        <div class="listing-item"><span class="listing-num">8.</span> <a href="#" style="color: inherit; text-decoration: none;">Hack.X - HTS'26</a></div>
+                        <div class="listing-item"><span class="listing-num">16.</span> <a href="#" style="color: inherit; text-decoration: none;">Xpecto'26 Hackathon</a></div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>HACKATHON</h2>
+                    <div class="item">
+                        <h3>1. Hackathon Finalist – REPO REBOOT’25</h3>
+                        <p>Team leader of Royal Rebooters; demonstrated strong problem-solving skills.</p>
+                        <div class="links-line">
+                            <a href="../Portfolio/reporeboot.jpg" target="_blank">Certificate</a> | <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git" target="_blank">Github</a> | <a href="https://zeel-kundariya-portfolio.vercel.app/" target="_blank">Portfolio</a>
+                        </div>
+                    </div>
 
-        <section>
-            <h2>Projects</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">VahanSetu &ndash; Indian EV Mobility OS <span style="font-weight:400; color:#555;">| Python, React, SQLite, Chart.js</span></span>
-                    <span class="item-date"><a href="https://github.com/Zeelkundariya/vahansetu.git" style="color:black; text-decoration:none;">GitHub</a> | <a href="https://vahansetu.onrender.com/" style="color:black; text-decoration:none;">Live</a></span>
-                </div>
-                <ul>
-                    <li>Engineered an enterprise-grade EV fleet ecosystem, utilizing real-time telemetry and OSRM-based predictive routing.</li>
-                    <li>Implemented dynamic pricing models and simulated hardware pings to optimize network uptime and charging availability.</li>
-                </ul>
+                    <div class="item">
+                        <h3>2. Hack Innovate 2026 - AI for Vision</h3>
+                        <p>Hackatron finalist; contributed as a core team member.</p>
+                        <div class="links-line">
+                            <a href="../Portfolio/hackinnovate.png" target="_blank">Certificate</a> | <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git" target="_blank">Github</a> | <a href="https://zeel-kundariya-portfolio.vercel.app/" target="_blank">Portfolio</a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <h3>3. InnovAItion - Shaping Future Innovators</h3>
+                        <p>Team leader of Innovators Prime at DA-IICT.</p>
+                        <div class="links-line">
+                            <a href="../Portfolio/Zeel_Kundariya_Certificate.pdf" target="_blank">Certificate</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>EDUCATION</h2>
+                    <div class="item" style="margin-bottom: 1mm;">
+                        <p><b>Swaminarayan University, Kalol</b> – B.Tech (2025-2029)</p>
+                    </div>
+                    <div class="item" style="margin-bottom: 1mm;">
+                        <p><b>Khyati World School, Ahmedabad</b> – Higher Sec. (2023-2025)</p>
+                    </div>
+                    <div class="item" style="margin-bottom: 1mm;">
+                        <p><b>Metas Adventist School, Vyara</b> – Secondary (2021-2023)</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>LANGUAGE</h2>
+                    <div style="font-size: 8pt; font-family: var(--font-serif); display: flex; gap: 4mm;">
+                        <span>English</span> | <span>Gujarati – Native</span> | <span>Hindi</span>
+                    </div>
+                </section>
             </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">AI Logistics Routing Engine <span style="font-weight:400; color:#555;">| Python, Node.js, MongoDB, Maps API</span></span>
-                    <span class="item-date"><a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git" style="color:black; text-decoration:none;">GitHub</a> | <a href="https://www.youtube.com/@ZeelKundariya" style="color:black; text-decoration:none;">Demo</a></span>
-                </div>
-                <ul>
-                    <li>Architected an AI-powered logistics routing solution to dynamically optimize global supply chain delivery networks.</li>
-                    <li>Integrated machine learning algorithms with mapping APIs, reducing simulated transportation costs and improving last-mile delivery efficiency.</li>
-                </ul>
-            </div>
+            <div class="right-col">
+                <section>
+                    <h2>Projects </h2>
+                    <div class="item">
+                        <h3>AIDTM Hackathon - AI Logistics Routing</h3>
+                        <p class="tech-line">Tech: Python, Node.js, Express, MongoDB, AI/ML, Maps API</p>
+                        <p>AI-powered logistics routing solution for global supply chain optimization. Uses intelligent algorithms to optimize delivery routes, reduce transportation costs, and improve last-mile delivery efficiency.</p>
+                        <div class="links-line">
+                            Links: <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git">Github</a> | <a href="https://www.YouTube.com/@ZeelKundariya">Demo</a> | <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git">Live</a>
+                        </div>
+                    </div>
+                    
+                    <div class="item">
+                        <h3>Smart Expense Management System</h3>
+                        <p class="tech-line">Tech: Tailwind CSS, Node.js, Express, MongoDB, JWT, Tesseract.js</p>
+                        <p>Full-stack web app automating expense reimbursement with role-based access control, multi-level approvals, and OCR-based receipt data extraction. Supports multi-currency expenses with secure processing and efficient organizational tracking.</p>
+                        <div class="links-line">
+                            Links: <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git">Github</a> | <a href="https://www.YouTube.com/@ZeelKundariya">Demo</a> | <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git">Live</a>
+                        </div>
+                    </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Smart Expense System <span style="font-weight:400; color:#555;">| Node.js, React, Tailwind, Tesseract.js</span></span>
-                    <span class="item-date"><a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git" style="color:black; text-decoration:none;">GitHub</a></span>
-                </div>
-                <ul>
-                    <li>Developed a full-stack expense reimbursement platform supporting multi-level role-based access control (RBAC).</li>
-                    <li>Integrated Tesseract.js for automated OCR receipt extraction, accelerating multi-currency expense processing tracking.</li>
-                </ul>
-            </div>
+                    <div class="item">
+                        <h3>Adaptive Learning Platform</h3>
+                        <p class="tech-line">Tech: Tailwind CSS, Node.js, Express, MongoDB, Face Recognition API</p>
+                        <p>AI-powered platform that personalizes curriculum paths based on students' knowledge gaps, learning styles, and real-time performance. Uses emotion-sensing technology to monitor engagement and dynamically adapt lessons, quizzes, and practice tasks.</p>
+                        <div class="links-line">
+                            Links: <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git">Github</a> | <a href="https://www.YouTube.com/@ZeelKundariya">Demo</a> | <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git">Live</a>
+                        </div>
+                    </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Adaptive Learning Platform <span style="font-weight:400; color:#555;">| Node.js, Express, MongoDB, Face API</span></span>
-                    <span class="item-date"><a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git" style="color:black; text-decoration:none;">GitHub</a></span>
-                </div>
-                <ul>
-                    <li>Built an AI-driven educational platform that personalizes curriculum paths based on students' real-time performance.</li>
-                    <li>Leveraged emotion-sensing technology to monitor user engagement and automatically adapt lesson difficulty.</li>
-                </ul>
-            </div>
+                    <div class="item">
+                        <h3>VahanSetu - The OS for Indian EV Mobility</h3>
+                        <p class="tech-line">Tech: Python, Flask, SQLite, React 18, Vite, Chart.js</p>
+                        <p>Enterprise-grade EV charging and fleet intelligence ecosystem bridging infrastructure and intelligence. Engineered with real-time telemetry, predictive neural analytics, OSRM-based routing, and dynamic pricing for Indian mobility.</p>
+                        <div class="links-line">
+                            Links: <a href="https://github.com/Zeelkundariya/vahansetu.git">Github</a> | <a href="https://www.YouTube.com/watch?v=I8c9jt1dHHA">Demo</a> | <a href="https://vahansetu.onrender.com/">Live</a>
+                        </div>
+                    </div>
 
-            <div class="item" style="margin-bottom: 2mm;">
-                <div class="item-header">
-                    <span class="item-title">GitHub Portfolio Analyzer <span style="font-weight:400; color:#555;">| React.js, Node.js, Chart.js, GitHub API</span></span>
-                    <span class="item-date"><a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git" style="color:black; text-decoration:none;">GitHub</a></span>
-                </div>
-                <ul>
-                    <li>Created a recruiter-focused analytics platform that transforms raw GitHub developer data into comprehensive hiring scorecards.</li>
-                    <li>Visualized complex repository contribution patterns and tech stacks using Chart.js to deliver actionable insights.</li>
-                </ul>
-            </div>
-        </section>
+                    <div class="item">
+                        <h3>GitHub Portfolio Analyzer</h3>
+                        <p class="tech-line">Tech: React.js, Node.js, Express, MongoDB, GitHub API, Chart.js</p>
+                        <p>Recruiter-friendly profile analytics platform transforming complex developer data into actionable hiring insights. Analyzes GitHub profiles, contribution patterns, and tech stacks to generate comprehensive developer scorecards.</p>
+                        <div class="links-line">
+                            Links: <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git">Github</a> | <a href="https://www.YouTube.com/@ZeelKundariya">Demo</a> | <a href="https://github.com/Zeelkundariya/Hackathon-projects-all.git">Live</a>
+                        </div>
+                    </div>
+                </section>
 
-        <section>
-            <h2>Experience & Leadership</h2>
-            <div class="item">
-                <div class="item-header" style="margin-bottom: 0;">
-                    <span class="item-title">Repo Reboot '25 Hackathon</span>
-                    <span class="item-date">Nov 2025</span>
-                </div>
-                <ul>
-                    <li>Led the "Royal Rebooters" team to the finals, demonstrating advanced full-stack architectural problem-solving under strict time constraints.</li>
-                </ul>
-            </div>
-            <div class="item" style="margin-bottom: 2mm;">
-                <div class="item-header" style="margin-bottom: 0;">
-                    <span class="item-title">Hack Innovate 2026 – AI for Vision</span>
-                    <span class="item-date">2026</span>
-                </div>
-                <ul>
-                    <li>Selected as a Hackatron Finalist; contributed as a core technical member to engineer and deploy precision AI solutions.</li>
-                </ul>
-            </div>
-        </section>
+                <section>
+                    <h3>Frontend & UI/UX Projects</h3>
+                    <p style="font-size: 8pt; line-height: 1.4; margin-top: 1mm;">
+                        <b>Mini-Projects:</b> Pokemon Cards, CodingGita, BookMyShow Clone, YouTube Clone, Redbus Clone, MultiDay Tours, Instagram Clone, Amazon Clone, Flipkart Clone, Netflix Clone
+                    </p>
+                </section>
 
-        <section>
-            <h2>Awards & Achievements</h2>
-            <ul>
-                <li><b>Hackathon Finalist</b> &ndash; InnovAItion: Shaping Future Innovators Hackathon.</li>
-                <li><b>Hackathon Runner-Up</b> &ndash; Odoo x Adani University Hackathon '26.</li>
-                <li><b>Top Achiever</b> &ndash; CodeMatrix: Genesis Hackathon.</li>
-                <li><b>Technical Breadth</b> &ndash; Developed 10+ frontend architectures including Netflix, YouTube, Pokémon Cards, and BookMyShow clones to master UI/UX implementation.</li>
-            </ul>
-        </section>
+            </div>
+        </div>
     </div>
+
 </body>
+
 </html>
+
+
